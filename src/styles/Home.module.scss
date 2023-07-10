@@ -1,28 +1,28 @@
+//.contents変更しました
 .contents {
     display: flex;
     margin: 0 auto;
     background-color:  skyblue;
-  }
+}
 
-.nav{
+ .nav{
   background-color: rgb(254, 254, 254);
   position: fixed;
 
-  // >button {
-  //   color: rgb(15, 51, 70);
-
-  // }
-
-  
-}
-  .main {
-    flex: 5;
-    position: relative;
   }
+
+//.main変更しました
+  .main {
+    width: 100%;
+    margin-left: 125px;
+    z-index: 0; //レイヤーの0層目に.mainを置く
+   }
   
   .blank {
     flex: 2;
-  }
+   }
+
+
 
 
   .loading {
