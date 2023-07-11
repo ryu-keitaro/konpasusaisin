@@ -133,13 +133,18 @@ export default function DataDisplayPage() {
     });
   };
 
+
+
+  //追加部分　scrolltotop関数を定義
   const scrollToTop=()=>{
     window.scrollTo({
       top:0,
       //behavior: 'smooth', // スムーズにスクロールする場合
-      behavior: 'auto', // 一瞬でスクロールする場合
+      behavior: 'smooth', // 一瞬でスクロールする場合
     });
   };
+
+
 
   const filteredData = data
   .sort((a, b) =>(b.strT - a.strT)) // timeプロパティで降順ソート
@@ -154,7 +159,6 @@ export default function DataDisplayPage() {
     return selectedTags.every((tag) => item.tag[tag]);
   });
   
-
 
   return (
 // ここからメンバー募集の画面
@@ -237,8 +241,10 @@ export default function DataDisplayPage() {
         
         // </ul>
       ))}
-      
+
       <h4>ページ{page+1}</h4>
+
+      {/* ボタンでpagechange関数と一緒にscrolltotop関数も動く */}
       <button className={styles.pagebtn} onClick={() => {PageChange(-1); scrollToTop()}}>⇐　前の十件</button>
       <button  className={styles.pagebtn} onClick={() =>{PageChange(1); scrollToTop()}}>次の十件　⇒</button>     
   </div>
