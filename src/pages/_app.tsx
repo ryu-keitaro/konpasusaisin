@@ -24,7 +24,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 				/>
 
 				{/* ↓publicにあるfaviconをブラウザタブのアイコンとして表示する。 */}
-				<link rel="icon" href="/favicon.ico" />  
+				<link rel="icon" href="/favicon.ico" /> 
+				<link rel="shortcut icon" href="/favicon.ico"/> 
+				<link rel="apple-touch-icon" href="/favicon.ico" />
 
 			</Head>
 			<DefaultSeo

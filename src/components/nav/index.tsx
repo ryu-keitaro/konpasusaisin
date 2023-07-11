@@ -49,10 +49,13 @@ const Nav: React.FC = () => {
         {TOPICS.map((topic, index) => {
           return (
             <li key={index} className={styles.navbtn}>
-            
+          {/* ここからボタン一つ分のデザイン */}    
                 <a href={`${topic.path}`} rel="noopener noreferrer">
 
                 {/* <Link href ={`${topic.path}`}> */}
+
+
+                
                 <div className={styles.button}>
                   <Image
                       src={topic.icon}
@@ -67,9 +70,12 @@ const Nav: React.FC = () => {
                 
                 {/* </Link> */}
        
-                  <p className={styles.namelogo}>{topic.name}</p>
+                  <p className={styles.namelogo}>{topic.name}</p>  
               </div>
               </a>
+              {/* ここまでボタン一つ分のデザイン */}
+
+
             </li>
           );
         })}

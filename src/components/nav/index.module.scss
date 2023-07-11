@@ -50,7 +50,6 @@
 .navbtn{
     display: flex;
     color: #fff;
-    background-color: #f1f2f3;
     border-bottom: 2px solid #37332e;
     font-weight: bold;
 
@@ -60,7 +59,46 @@
   
   }
 
+  // .navbtn:nth-child(1){
+  //   background-color: rgb(255, 255, 255);
+  // }
+  // .navbtn:nth-child(1)::after{
+  //   background-color: rgb(255, 0, 0);
+  // }
 
+
+  // .navbtn:nth-child(2){
+  //   background-color: rgb(255, 255, 255);
+  // }
+  // .navbtn:nth-child(2)::after{
+  //   background-color: yellow;
+  // }
+
+
+  // .navbtn:nth-child(3){
+  //   background-color: rgb(255, 255, 255);
+  // }
+  // .navbtn:nth-child(3)::after{
+  //   background-color: green;
+  // }
+
+
+  // .navbtn:nth-child(4){
+  //   background-color: rgb(255, 255, 255);
+  // }
+  // .navbtn:nth-child(4)::after{
+  //   background-color: blue;
+  // }
+
+
+  // .navbtn:nth-child(5){
+  //   background-color: rgb(255, 255, 255);
+  // }
+  // .navbtn:nth-child(5)::after{
+  //   background-color: purple;
+  // }
+
+  
 
 .navbtn:hover{
     margin-top: 1px;
