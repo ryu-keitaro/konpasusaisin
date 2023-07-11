@@ -172,20 +172,14 @@
 @keyframes animate {
 
     0%{
-        transform: translateY(5vh) rotate(0deg);
+        transform: translateY(0vh) rotate(0deg);
         opacity: 1; //透明度の変更(下側)
         border-radius: 0;
     }
     //ここ100%から50%にすると上下に往復する
     50%{
-        transform: translateY(-105vh) rotate(720deg);
+        transform: translateY(-103vh) rotate(720deg);
         opacity: 0.5; //透明度の変更(上側)
         border-radius: 50%;
-    }
-
-    100%{
-        transform: translateY(5vh) rotate(0deg);
-        opacity: 1; 
-        border-radius: 0;
     }
 }
