@@ -172,7 +172,7 @@
 @keyframes animate {
 
     0%{
-        transform: translateY(-10vh) rotate(0deg);
+        transform: translateY(0vh) rotate(0deg);
         opacity: 1; //透明度の変更(下側)
         border-radius: 0;
     }
@@ -184,7 +184,7 @@
     }
 
     100%{
-        transform: translateY(-10vh) rotate(0deg);
+        transform: translateY(0vh) rotate(0deg);
         opacity: 1; 
         border-radius: 0;
     }
