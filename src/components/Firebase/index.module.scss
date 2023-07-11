@@ -118,23 +118,24 @@
     }
 
 
-    /* .tagGrid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3つのカラムを作成 
-        grid-gap: 5px; /* カラム間のスペースを設定 
-      }*/
+    //  .tagGrid {
+    //     display: grid;
+    //     grid-template-columns: repeat(3, 1fr); /* 3つのカラムを作成 */
+    //     grid-gap: 5px; /* カラム間のスペースを設定 */
+    //   }
 
     .tagGrid2 {
-      margin-left: 5px;
-      margin-bottom: 5px;
+      margin-left: 10px;
+      margin-bottom: 10px;
 
       //追加部分
-      display: flex; 
-      flex-wrap: wrap; /* 要素を折り返す */
+      display: grid; 
+      max-width: 600px;
+      column-gap: wrap; /* 要素を折り返す */
       //ここまで
 
       grid-template-columns: repeat(4, 1fr); /* 5つのカラムを作成 */
-      grid-gap: 10px; /* カラム間のスペースを設定 */
+      grid-gap: 1px; /* カラム間のスペースを設定 */
     }
 
   
@@ -161,9 +162,23 @@
       border: 1px solid #FBB; /* 淵の線を薄い赤に */
     }
 
-    
-    //@media (max-width: 100px) { /*ウィンドウがmax-widthで指定したpxより小さいときの処理。*/
-      //.tagGrid2 {
-        //flex-direction: column; /* 要素を垂直に積み上げる */
-      //}
-    //}
+
+    @media (max-width: 650px) { /*投稿一覧の横幅がmax-widthで指定したpxより小さいときの処理。*/
+      .tagGrid2 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3列にする */
+        grid-gap: 5px;
+        // $column-count:2;
+      }
+    }
+
+
+    @media (max-width: 550px) { /*投稿一覧の横幅が500pxより小さいときの処理。*/
+      .tagGrid2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 5つのカラムを作成 */
+        grid-gap: 5px;
+        // flex-direction: column; /* 要素を垂直に積み上げる */
+        // $column-count:1;
+      }
+    }

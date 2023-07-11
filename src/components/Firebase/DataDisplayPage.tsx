@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef ,useEffect, useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs, Timestamp } from 'firebase/firestore';
 import styles from './index.module.scss';
@@ -133,6 +133,13 @@ export default function DataDisplayPage() {
     });
   };
 
+  const scrollToTop=()=>{
+    window.scrollTo({
+      top:0,
+      //behavior: 'smooth', // スムーズにスクロールする場合
+      behavior: 'auto', // 一瞬でスクロールする場合
+    });
+  };
 
   const filteredData = data
   .sort((a, b) =>(b.strT - a.strT)) // timeプロパティで降順ソート
@@ -146,13 +153,10 @@ export default function DataDisplayPage() {
     // 選択されたタグに一致するデータのみ表示
     return selectedTags.every((tag) => item.tag[tag]);
   });
-
   
 
+
   return (
-
-
-
 // ここからメンバー募集の画面
  <div>
       <button className={styles.pagebtn} onClick={() => {PageChange(-1)}}>⇐　前の十件</button>
@@ -230,11 +234,16 @@ export default function DataDisplayPage() {
             
           </article>
         
+        
         // </ul>
       ))}
+      
+      <h4>ページ{page+1}</h4>
+      <button className={styles.pagebtn} onClick={() => {PageChange(-1); scrollToTop()}}>⇐　前の十件</button>
+      <button  className={styles.pagebtn} onClick={() =>{PageChange(1); scrollToTop()}}>次の十件　⇒</button>     
   </div>
 // ここまでメンバー募集の画面
 
 
   );
-}
+  };
