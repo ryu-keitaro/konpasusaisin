@@ -125,7 +125,7 @@
     //   }
 
     .tagGrid2 {
-      margin-left: 5px;
+      margin-left: 0px;
       margin-bottom: 10px;
       display: grid; 
 
@@ -170,10 +170,20 @@
     }
 
 
-    @media (max-width: 550px) { /*投稿一覧の横幅が500pxより小さいときの処理。*/
+    @media (max-width: 550px) { /*投稿一覧の横幅が550pxより小さいときの処理。*/
       .tagGrid2 {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 5つのカラムを作成 */
+        grid-template-columns: repeat(2, 1fr); /* 2列にする */
         grid-gap: 5px;
       }
     }
+
+    //多分使わない
+    // @media (max-width: 450px) { /*投稿一覧の横幅が450pxより小さいときの処理。*/
+    //   .tagGrid2 {
+    //     display: grid;
+    //     grid-template-columns: repeat(1, 1fr); /* 1列にする */
+    //     grid-gap: 5px;
+    //   }
+    // }
+    
