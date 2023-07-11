@@ -47,12 +47,10 @@ const Nav: React.FC = () => {
           return (
             <li key={index} className={styles.navbtn}>
             
-                <a
-                 href={`${topic.path}`}
-                rel="noopener noreferrer">
+                <a href={`${topic.path}`} rel="noopener noreferrer">
 
                 {/* <Link href ={`${topic.path}`}> */}
-               
+                <div className={styles.button}>
                   <Image
                       src={topic.icon}
                       alt=""
@@ -66,7 +64,8 @@ const Nav: React.FC = () => {
                 
                 {/* </Link> */}
        
-              <p className={styles.namelogo}>{topic.name}</p>
+                  <p className={styles.namelogo}>{topic.name}</p>
+              </div>
               </a>
             </li>
           );

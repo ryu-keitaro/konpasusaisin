@@ -1,8 +1,11 @@
+//src/styles/home.module.scss
+//登校一覧とナビゲーションバーが被るのを修正
+
 //.contents変更しました
 .contents {
     display: flex;
     margin: 0 auto;
-    background-color:  skyblue;
+    background-color:  rgb(255, 255, 255);
 }
 
  .nav{

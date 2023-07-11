@@ -1,3 +1,6 @@
+//タグのレイアウト修正
+//src/components/Firebase/indexmodule.scss 
+
 .formlayout{
    
         // padding: 1em 2em;
@@ -128,7 +131,7 @@
       //追加部分
       display: flex; 
       flex-wrap: wrap; /* 要素を折り返す */
-
+      //ここまで
 
       grid-template-columns: repeat(4, 1fr); /* 5つのカラムを作成 */
       grid-gap: 10px; /* カラム間のスペースを設定 */
