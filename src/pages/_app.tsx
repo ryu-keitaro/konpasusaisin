@@ -27,7 +27,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 			</Head>
 			<DefaultSeo
 				defaultTitle="コンパス掲示板"
-				canonical="https://konpasusaisin.vercel.app/"
+				canonical="https://compass-forum.net/"
 				description="ここはコンパスのメンバー募集や質問募集ができる掲示板です。"
 				
 				// ↓snsとかでurl貼ったら出てくる説明(opengraph)
@@ -36,11 +36,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 					title: "コンパス募集掲示板",
 					description: "コンパスのメンバー募集や質問募集ができる掲示板です。",
 					site_name: "COMPASS.NET",
-					url: "https://konpasusaisin.vercel.app/",
+					url: "https://compass-forum.net/",
 					images: [
 					 {
 						// ↓画像を引っ張ってくる所（公開url/public内の表示したい画像）
-					 	url: "https://konpasusaisin.vercel.app/topicon.jpg",
+					 	url: "https://compass-forum.net/topicon.jpg",
 						width: 512,
 						height: 512,
 						alt: 'Og Image Alt',
