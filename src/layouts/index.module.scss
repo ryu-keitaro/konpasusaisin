@@ -178,7 +178,7 @@
     }
     //ここ100%から50%にすると上下に往復する
     50%{
-        transform: translateY(-103vh) rotate(720deg);
+        transform: translateY(-100vh) rotate(720deg);
         opacity: 0.5; //透明度の変更(上側)
         border-radius: 50%;
     }
