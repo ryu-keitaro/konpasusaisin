@@ -1,4 +1,6 @@
 // src/pages/_app.tsx
+//ブラウザタブ上にタイトル表示、SNSでのopengraphなどを設定
+
 import '@/styles/globals.scss';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';

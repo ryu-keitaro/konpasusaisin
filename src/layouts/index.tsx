@@ -14,15 +14,16 @@ function MainLayout({ children }: LayoutProps): JSX.Element {
         {/*こことここのscssを変更後にHome.module.scssも変更するべし*/}
         {/* <div className={styles.area}> */}
           <ul className={styles.circles}>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
           </ul>
         {/* </div> */}
         <main className={styles.main}>{children}</main>

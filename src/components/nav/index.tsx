@@ -1,3 +1,6 @@
+//src/components/nav/index.tsx
+//ナビゲーションバーのボタン全部にstyleを適用できるよう変更
+
 import Link from "next/link";
 import styles from "./index.module.scss";
 import Image from "next/image";

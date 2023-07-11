@@ -1,3 +1,6 @@
+//src/components/Firebase/DataDisplayPage.tsx
+//投稿一覧のページ移動時、上にスクロールを追加
+
 import React, { useRef ,useEffect, useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs, Timestamp } from 'firebase/firestore';
@@ -139,8 +142,8 @@ export default function DataDisplayPage() {
   const scrollToTop=()=>{
     window.scrollTo({
       top:0,
-      //behavior: 'smooth', // スムーズにスクロールする場合
-      behavior: 'smooth', // 一瞬でスクロールする場合
+      //behavior: 'auto', // 一瞬でスクロールする場合
+      behavior: 'smooth', // スムーズにスクロールする場合
     });
   };
 
