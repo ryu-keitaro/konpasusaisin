@@ -17,7 +17,7 @@ const TAG_PRIORITY: { [key: string]: number } = {
 };
 export const TagDisplay: React.FC<TagDisplayProps> = ({ tag }) => {
     const [tagFields, setTagFields] = useState<TagFields>({});
-  const sortedTags = Object.entries(tag).sort(([a], [b]) => {
+    const sortedTags = Object.entries(tag).sort(([a], [b]) => {
     const priorityA = TAG_PRIORITY[a] || Infinity;
     const priorityB = TAG_PRIORITY[b] || Infinity;
     return priorityA - priorityB;
