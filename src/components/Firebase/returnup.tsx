@@ -1,7 +1,7 @@
 //src/components/Firebase/returnup.tsx
 //テキストボックスデザイン変更。ヘッダーとのかぶりを修正。
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useFirestoreUpload } from './Dataupload';
 import styles from "./index.module.scss";
 import firebase from 'firebase/app';
@@ -52,6 +52,10 @@ const initialTags: TagFields = {
   // 追加したタグにも初期値を設定してください。
 };
 
+
+
+
+
 export default function UploadForm() {
   const { uploadData, uploadStatus } = useFirestoreUpload();
   const [formData, setFormData] = useState<FirestoreData>({
@@ -97,6 +101,16 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       },
     }));
   };
+
+
+  const textareaRef = useRef<HTMLTextAreaElement |null>(null);
+
+const adjustTextareaHeight = () => {
+  if (textareaRef.current) {
+    textareaRef.current.style.height = "auto";
+    textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+  }
+};
 
 
 
@@ -160,11 +174,13 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           <label htmlFor="" className={styles.label}>DETAIL</label>
           <textarea
             className={styles.textarea}
-            style={{resize:"none"}}
+            style={{resize:"none"} }
             // maxLength={100}
             // style={{ width: '100%', height: '50px', resize: 'none' }}
-            wrap="hard"
+            // wrap="hard"
+            ref={textareaRef}
             value={formData.detail}
+
             onChange={(e) => setFormData({ ...formData, detail: e.target.value })}
             placeholder="詳細文"
           /><br></br> 

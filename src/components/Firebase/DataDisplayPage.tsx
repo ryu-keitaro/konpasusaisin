@@ -219,7 +219,9 @@ export default function DataDisplayPage() {
             <div>
               <h5>Guildname: {item.name}</h5>
               <br></br>
-               <p key={item.id}>{item.detail}</p>
+
+              {/* dangerouslySetInnerHTML={{ __html: item.detail.replace(/\n/g, "<br>") }}> */}
+              <p key={item.id} className={styles.text}>{item.detail}</p>
               <br></br>
             </div>
             <div>

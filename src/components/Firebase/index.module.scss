@@ -193,7 +193,7 @@
     //プレイヤーidその他用
     .textbox {
       display: block;
-      width: 30%;
+      width: 150px;
       padding: 2px;
       border: none;
       border-radius: 4px;
@@ -219,6 +219,7 @@
       background:  #ffffff;
       font-size: 14px;
       
+      
 
       &:focus {
         outline: none;
@@ -240,7 +241,14 @@
       margin-top: 3px;
       margin-bottom: 3px;
     }
+
+
+    //↓改行用
+    .text{
+      white-space: pre-wrap;
+    }
     
+
 
 
    
