@@ -102,15 +102,16 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     }));
   };
 
-
+//追加　入力でテキストエリア大きさ変える
 const textareaRef = useRef<HTMLTextAreaElement |null>(null);
 
-const adjustTextareaHeight = () => {
+const TextareaHeight = () => {
   if (textareaRef.current) {
     textareaRef.current.style.height = "auto";
     textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
   }
 };
+//ここまで
 
 
 
@@ -141,12 +142,14 @@ const adjustTextareaHeight = () => {
           }
       })}
   
+
+      {/* 修正 */}
       <div>
           <label htmlFor="" className={styles.label}>PLAYER ID</label>
           <input    
             type="text"
             className={styles.textbox}
-            maxLength={11}
+            maxLength={11}//文字数制限出来ない
             value={formData.id}
             onChange={(e) => setFormData({ ...formData, id: e.target.value })}
             placeholder="プレイヤーID"
@@ -172,20 +175,23 @@ const adjustTextareaHeight = () => {
             placeholder="ギルド名"
           />
           <label htmlFor="" className={styles.label}>DETAIL</label>
+
+
           <textarea
             className={`${styles.textarea} ${styles.resize}`}
-            // style={{resize:"none"} }
-            maxLength={100}
-            // style={{ width: '100%', height: '50px', resize: 'none' }}
-            // wrap="hard"
+            
+            wrap="hard"
             ref={textareaRef}
             value={formData.detail}
-
-            onChange={(e) => {setFormData({ ...formData, detail: e.target.value });
-            adjustTextareaHeight();}}
+            // maxLength={100}//文字数制限されない
+            onChange={(e) => {
+            setFormData({ ...formData, detail: e.target.value });
+            TextareaHeight();}} //
             placeholder="詳細文"
-          /><br></br> 
-
+          /> 
+          {/* <p>{formData.detail.length}/100</p> */}
+          {/* 文字数カウント 改行までカウントされる */}
+          <br/>
       </div>
 
 

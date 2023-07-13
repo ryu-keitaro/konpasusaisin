@@ -1,6 +1,7 @@
 //src/components/Firebase/indexmodule.scss 
 //タグのレイアウト修正
 //一番下に改行用の.textを設定
+//入力でテキストボックスの大きさ変化
 
 .formlayout{
    
@@ -209,22 +210,19 @@
       }
     }
 
-
-    $LINE_HEIGHT: 1.5rem; // 1行の高さ
-    $MAX_LINE_COUNT: 13; // 最大行数
+  
 
     //詳細文用
     .textarea{
       display: block;
       width: 100%;
-      line-height: $LINE_HEIGHT;
-      max-height: auto;
+      line-height: 1.5rem;// 1行の高さ
       padding: 2px;
       border: none ;
       border-radius: 4px;
       background:  #ffffff;
       font-size: 14px;
-      max-height: calc(#{$LINE_HEIGHT} * #{$MAX_LINE_COUNT});
+      max-height: calc(1.5rem*12); //最大行数12
       overflow-y: auto;
 
       &:focus {
@@ -234,12 +232,12 @@
       }
     }
 
+    //追加
     .resize{
           resize: none;
         }
 
-        
-    //
+    //追加
     .label{
       padding-left: 5px;
       font-size: 12px;
@@ -252,9 +250,7 @@
       margin-bottom: 3px;
     }
 
-    
-
-
+  
     //↓改行用
     .text{
       white-space: pre-wrap;
