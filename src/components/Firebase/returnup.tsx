@@ -103,7 +103,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   };
 
 
-  const textareaRef = useRef<HTMLTextAreaElement |null>(null);
+const textareaRef = useRef<HTMLTextAreaElement |null>(null);
 
 const adjustTextareaHeight = () => {
   if (textareaRef.current) {
@@ -173,15 +173,16 @@ const adjustTextareaHeight = () => {
           />
           <label htmlFor="" className={styles.label}>DETAIL</label>
           <textarea
-            className={styles.textarea}
-            style={{resize:"none"} }
-            // maxLength={100}
+            className={`${styles.textarea} ${styles.resize}`}
+            // style={{resize:"none"} }
+            maxLength={100}
             // style={{ width: '100%', height: '50px', resize: 'none' }}
             // wrap="hard"
             ref={textareaRef}
             value={formData.detail}
 
-            onChange={(e) => setFormData({ ...formData, detail: e.target.value })}
+            onChange={(e) => {setFormData({ ...formData, detail: e.target.value });
+            adjustTextareaHeight();}}
             placeholder="詳細文"
           /><br></br> 
 

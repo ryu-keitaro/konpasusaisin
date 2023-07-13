@@ -1,5 +1,6 @@
 //src/components/Firebase/DataDisplayPage.tsx
 //投稿一覧のページ移動時、上にスクロールを追加
+//225行目に改行のやつ追加
 
 import React, { useRef ,useEffect, useState } from 'react';
 import { initializeApp } from 'firebase/app';
@@ -220,7 +221,7 @@ export default function DataDisplayPage() {
               <h5>Guildname: {item.name}</h5>
               <br></br>
 
-              {/* dangerouslySetInnerHTML={{ __html: item.detail.replace(/\n/g, "<br>") }}> */}
+              {/* classnameに.text指定で改行できる */}
               <p key={item.id} className={styles.text}>{item.detail}</p>
               <br></br>
             </div>
