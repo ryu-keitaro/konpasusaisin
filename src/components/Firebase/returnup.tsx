@@ -1,3 +1,6 @@
+//src/components/Firebase/returnup.tsx
+//テキストボックスデザイン変更。ヘッダーとのかぶりを修正。
+
 import React, { useState } from 'react';
 import { useFirestoreUpload } from './Dataupload';
 import styles from "./index.module.scss";
@@ -95,9 +98,12 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     }));
   };
 
+
+
   return (
-    <div>
-      <h3>投稿内容</h3>
+    //ここから投稿内容
+    <div className={styles.bbs}>
+      <h3 className=''>投稿内容</h3>
       <form onSubmit={handleSubmit} className={styles.formlayout}>
       {Object.entries(formData).map(([key, value]) => {
           if (key === "tag") {
@@ -122,29 +128,41 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       })}
   
       <div>
+          <label htmlFor="" className={styles.label}>PLAYER ID</label>
           <input    
             type="text"
+            className={styles.textbox}
+            maxLength={11}
             value={formData.id}
             onChange={(e) => setFormData({ ...formData, id: e.target.value })}
             placeholder="プレイヤーID"
-          /><br></br>
-
+          />
+          
+          <label htmlFor="" className={styles.label}>TITLE</label>
           <input
             type="text"
+            className={styles.textbox}
+            maxLength={11}
             value={formData.title}
             onChange={(e) => setFormData({ ...formData, title: e.target.value })}
             placeholder="タイトル"
-          /><br></br>
-
+          />
+       
+          <label htmlFor="" className={styles.label}>GUILD NAME</label>
           <input
             type="text"
+            className={styles.textbox}
+            maxLength={11}
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             placeholder="ギルド名"
-          /><br></br>
-
+          />
+          <label htmlFor="" className={styles.label}>DETAIL</label>
           <textarea
-            style={{ width: '90%', height: '200px', resize: 'vertical' }}
+            className={styles.textarea}
+            style={{resize:"none"}}
+            // maxLength={100}
+            // style={{ width: '100%', height: '50px', resize: 'none' }}
             wrap="hard"
             value={formData.detail}
             onChange={(e) => setFormData({ ...formData, detail: e.target.value })}
@@ -154,11 +172,12 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       </div>
 
 
-        <button type="submit">データを追加/更新</button>
+        <button type="submit" className={styles.button}>データを追加/更新</button>
       </form>
       
       {uploadStatus === 'Success' && <p>{} formed!</p>}
       {uploadStatus === 'Error' && <p>Upload failed!</p>}
     </div>
+    //ここまで投稿内容
   );
 }

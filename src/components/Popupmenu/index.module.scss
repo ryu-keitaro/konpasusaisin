@@ -1,3 +1,6 @@
+//src/components/Popupmenu/indexmodule.scss
+//投稿内容modalの位置調整
+
 .formbtn{
     color: #fff;
     background-color: #0a0c0d;
@@ -16,7 +19,7 @@
 .formarea{
    
     
-    margin-top: 5%;
+    margin-top: 15%; //投稿内容modalがheadと被らない
     margin-left: 10%;
     margin-right: 10%;
     background: #cee3f4;

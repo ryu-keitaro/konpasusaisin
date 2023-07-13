@@ -4,8 +4,9 @@
 .formlayout{
    
         // padding: 1em 2em;
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: 5%;
+        margin-right: 5%;
+      
         // background: #41505d;
         // box-shadow: 0px 0px 0px 10px #d6ebff;
         // border: dashed 2px white;
@@ -17,6 +18,7 @@
 
 
 .bbs {
+        margin-top: 0px;
         width: 100%;
         margin: 10px auto;
       }
@@ -117,12 +119,12 @@
       box-shadow: 0 2px 0 #aaaaaa;
     }
 
-    //ここ多分いらない？
-    //  .tagGrid {
-    //     display: grid;
-    //     grid-template-columns: repeat(3, 1fr); /* 3つのカラムを作成 */
-    //     grid-gap: 5px; /* カラム間のスペースを設定 */
-    //   }
+    //ここやっぱいる！
+     .tagGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3つのカラムを作成 */
+        grid-gap: 5px; /* カラム間のスペースを設定 */
+      }
 
     .tagGrid2 {
       margin-left: 0px;
@@ -186,4 +188,59 @@
     //     grid-gap: 5px;
     //   }
     // }
+
+
+    //プレイヤーidその他用
+    .textbox {
+      display: block;
+      width: 30%;
+      padding: 2px;
+      border: none;
+      border-radius: 4px;
+      background:  #ffffff;
+      font-size: 14px;
     
+      &:focus {
+        outline: none;
+        border:double 2px #61ff83;
+        // border-color: #007bff;
+        box-shadow: 0 0 0 2px rgb(0, 255, 247);
+      }
+    }
+
+    //詳細文用
+    .textarea{
+      display: block;
+      width: 100%;
+      max-height: 200px;
+      padding: 2px;
+      border: none ;
+      border-radius: 4px;
+      background:  #ffffff;
+      font-size: 14px;
+      
+
+      &:focus {
+        outline: none;
+        border:double 2px #61ff83;
+        box-shadow: 0 0 0 2px rgb(0, 255, 247);
+      }
+    }
+
+
+    //
+    .label{
+      padding-left: 5px;
+      font-size: 12px;
+    }
+
+    .button{
+      border: 4px black;
+      font-size: 12px;
+      margin-top: 3px;
+      margin-bottom: 3px;
+    }
+    
+
+
+   

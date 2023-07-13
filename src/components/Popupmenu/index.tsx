@@ -51,9 +51,8 @@ function Popup() {
           contentLabel="Example Modal"
           className={styles.formarea}
         >
-       
- 
-        <button onClick={closeModal}>閉じる</button>
+
+        <button onClick={closeModal} >閉じる</button>
 
      
       
