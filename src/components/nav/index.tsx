@@ -49,8 +49,9 @@ const Nav: React.FC = () => {
         {TOPICS.map((topic, index) => {
           return (
             <li key={index} className={styles.navbtn}>
-          {/* ここからボタン一つ分のデザイン */}    
-                <a href={`${topic.path}`} rel="noopener noreferrer">
+          {/* ここからボタン一つ分のデザイン */}
+          <Link legacyBehavior href={topic.path} passHref>    
+                
 
                 {/* <Link href ={`${topic.path}`}> */}
 
@@ -72,7 +73,8 @@ const Nav: React.FC = () => {
        
                   <p className={styles.namelogo}>{topic.name}</p>  
               </div>
-              </a>
+              
+              </Link>
               {/* ここまでボタン一つ分のデザイン */}
 
 

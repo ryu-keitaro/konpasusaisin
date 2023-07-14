@@ -102,6 +102,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     }));
   };
 
+  
 //追加　入力でテキストエリア大きさ変える
 const textareaRef = useRef<HTMLTextAreaElement |null>(null);
 
