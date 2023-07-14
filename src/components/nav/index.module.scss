@@ -21,11 +21,38 @@
       
   }
   }
+
+
+  //ボタン外枠のデザイン
+  .navbtn{
+    width: 110px; //ボタン外枠の幅
+    display: flex;
+    color: #fff;
+    border-bottom: 2px solid #37332e;
+    font-weight: bold;
+    // width: 105px;
+
+    a{
+      text-decoration: none;
+    }
+
+  }
+
+  //選択したボタン外枠のデザイン
+  .navbtn_after{
+    width:90%;  //選択時のボタン幅（通常時の90%）
+    background-color: rgb(255, 255, 255);
+  }
+
+
+  //ボタン内枠のデザイン
   .button{
-    width: 100px;
+    width: 100%; //ボタン内枠の幅
     color: rgb(15, 36, 36);
     justify-content: center;
     font-weight: bold;
+    background-color: #ffffff;
+    cursor: pointer;
 
 
     .titlesize{
@@ -35,81 +62,45 @@
 
     .namelogo{
     color: rgb(249, 249, 249);
-    background-color: #0f1112;
+    background-color: black;
     text-align: center;
+    font-size: 14px;
     }   
-
   }
 
-
-
-
-
-
-
-.navbtn{
-    display: flex;
-    color: #fff;
-    border-bottom: 2px solid #37332e;
+  //選択時のボタン内枠のデザイン
+  .button_after {
+    width: 100%; //選択時のボタン内枠の幅
+    color: rgb(15, 36, 36);
+    justify-content: center;
     font-weight: bold;
+    background-color: #00ffea;
 
-    a{
-      text-decoration: none;
-    }
-  
+        .titlesize{
+        font-size: 35px;
+        color: #1b0d0d;
+        }
+    
+        .namelogo{
+        color: rgb(249, 249, 249);
+        background-color: black;
+        text-align: center;
+        }   
   }
 
-  // .navbtn:nth-child(1){
-  //   background-color: rgb(255, 255, 255);
-  // }
-  // .navbtn:nth-child(1)::after{
-  //   background-color: rgb(255, 0, 0);
-  // }
 
+ 
+  .navbtn:hover{
+      margin-top: 1px;
+      color: #fff;
+      background: #ff9900;
+      border-bottom: 2px solid #b84c00;
+      opacity: 1.0;
 
-  // .navbtn:nth-child(2){
-  //   background-color: rgb(255, 255, 255);
-  // }
-  // .navbtn:nth-child(2)::after{
-  //   background-color: yellow;
-  // }
+      .namelogo{
+        color: #ffffff;
+        background-color: #0f1112;
+      }
+  }
 
-
-  // .navbtn:nth-child(3){
-  //   background-color: rgb(255, 255, 255);
-  // }
-  // .navbtn:nth-child(3)::after{
-  //   background-color: green;
-  // }
-
-
-  // .navbtn:nth-child(4){
-  //   background-color: rgb(255, 255, 255);
-  // }
-  // .navbtn:nth-child(4)::after{
-  //   background-color: blue;
-  // }
-
-
-  // .navbtn:nth-child(5){
-  //   background-color: rgb(255, 255, 255);
-  // }
-  // .navbtn:nth-child(5)::after{
-  //   background-color: purple;
-  // }
-
-  
-
-.navbtn:hover{
-    margin-top: 1px;
-    color: #fff;
-    background: #fb8c3d;
-    border-bottom: 2px solid #b84c00;
-    opacity: 1.0;
-
-    .namelogo{
-      color: #0f1112;
-      background-color: #fff;
-    }
-}
   

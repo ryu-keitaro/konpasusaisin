@@ -1,10 +1,11 @@
 //src/components/nav/index.tsx
-//ナビゲーションバーのボタン全部にstyleを適用できるよう変更
+//現在いるページのナビゲーションバーのボタンのスタイルを変える
 
 import Link from "next/link";
 import styles from "./index.module.scss";
 import Image from "next/image";
 import React from "react";
+import { useRouter } from "next/router";//現在のpathを取得するためのやつ
 
 
 
@@ -43,21 +44,24 @@ const TOPICS = [
 ];
 
 const Nav: React.FC = () => {
+
+  //追加　現在のページのpathを取得
+  const router = useRouter();
+  const currentPath = router.pathname;
+  //ここまで
+
   return (
     <section className={styles.container}>
       <ul className={styles.contents}>
         {TOPICS.map((topic, index) => {
+          const isActive = currentPath === topic.path;
           return (
-            <li key={index} className={styles.navbtn}>
-          {/* ここからボタン一つ分のデザイン */}
-          <Link legacyBehavior href={topic.path} passHref>    
-                
-
-                {/* <Link href ={`${topic.path}`}> */}
-
-
-                
-                <div className={styles.button}>
+            // ここからボタン一つ分のデザイン
+            <li key={index} className={`${styles.navbtn} ${isActive ? styles.navbtn_after:''}`}>
+          
+                {/* 多分aよりLinkの方が早い？　 */}
+              <Link legacyBehavior href={topic.path} > 
+                <div className={`${styles.button} ${isActive ? styles.button_after : ''}`}>
                   <Image
                       src={topic.icon}
                       alt=""
@@ -65,20 +69,18 @@ const Nav: React.FC = () => {
                       width={33}
                       height={33}
                       priority
-                    />
-                    <span className={styles.titlesize}>{topic.title}</span>
-                  
-                
-                {/* </Link> */}
-       
+                  />
+
+                  <span className={styles.titlesize}>{topic.title}</span>
+
                   <p className={styles.namelogo}>{topic.name}</p>  
-              </div>
-              
+                </div>
               </Link>
-              {/* ここまでボタン一つ分のデザイン */}
+              
 
 
             </li>
+            // ここまでボタン一つ分のデザイン
           );
         })}
       </ul>
