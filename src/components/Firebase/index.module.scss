@@ -94,9 +94,8 @@
     
     
     .pagebtn{
-      // display: block;
-      // justify-content: space-between;
-      // align-items: center;
+      position: fixed;
+      bottom: 0px;
       margin: 0 auto;
       padding: 1em 0em;
       width: 100px;
@@ -121,7 +120,37 @@
       box-shadow: 0 2px 0 #aaaaaa;
     }
 
-    //ここやっぱいる！
+
+    .pagebtn2{
+      position: fixed;
+      bottom: 0px;
+      margin-left: 100px;
+      padding: 1em 0em;
+      width: 100px;
+      color: #333;
+      font-size: 9px;
+      font-weight: 900;
+      background-color: #f5eded;
+      box-shadow: 0 3px 0 #c9c7c7;
+      transition: 0.3s;
+    }
+    .pagebtn2 a::after {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-top: 3px solid #333333;
+      border-right: 3px solid #333333;
+      transform: rotate(45deg);
+    }
+    .pagebtn2 a:hover {
+      transform: translateY(2px);
+      text-decoration: none;
+      box-shadow: 0 2px 0 #aaaaaa;
+    }
+
+    
+    
+
      .tagGrid {
         display: grid;
         grid-template-columns: repeat(3, 1fr); /* 3つのカラムを作成 */

@@ -57,11 +57,11 @@ const Nav: React.FC = () => {
           const isActive = currentPath === topic.path;
           return (
             // ここからボタン一つ分のデザイン
-            <li key={index} className={`${styles.navbtn} ${isActive ? styles.navbtn_after:''}`}>
+            <li className={`${styles.navbtn} ${isActive ? styles.navbtn_after:""}`}>
           
-                {/* 多分aよりLinkの方が早い？　 */}
+               {/* Linkのほうがaよりデータ読み込み少なくていいかも */}
               <Link legacyBehavior href={topic.path} > 
-                <div className={`${styles.button} ${isActive ? styles.button_after : ''}`}>
+                <div className={`${styles.button} ${isActive ? styles.button_after : ""}`}>
                   <Image
                       src={topic.icon}
                       alt=""

@@ -248,11 +248,13 @@ export default function DataDisplayPage() {
         // </ul>
       ))}
 
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <h4>ページ{page+1}</h4>
-
+      <br/><br/><br/><br/><br/><br/><br/><br/>
       {/* ボタンでpagechange関数と一緒にscrolltotop関数も動く */}
       <button className={styles.pagebtn} onClick={() => {PageChange(-1); scrollToTop()}}>⇐　前の十件</button>
-      <button  className={styles.pagebtn} onClick={() =>{PageChange(1); scrollToTop()}}>次の十件　⇒</button>     
+      
+      <button  className={styles.pagebtn2} onClick={() =>{PageChange(1); scrollToTop()}}>次の十件　⇒</button>     
   </div>
 // ここまでメンバー募集の画面
 

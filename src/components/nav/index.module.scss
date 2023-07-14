@@ -25,23 +25,25 @@
 
   //ボタン外枠のデザイン
   .navbtn{
-    width: 110px; //ボタン外枠の幅
-    display: flex;
+    width: 95px; //ボタン外枠の幅
+    
     color: #fff;
     border-bottom: 2px solid #37332e;
     font-weight: bold;
-    // width: 105px;
+    
 
-    a{
-      text-decoration: none;
-    }
-
+    // a{
+    //   text-decoration: none;
+    // }
   }
 
-  //選択したボタン外枠のデザイン
+  //選択時のボタン外枠のデザイン
   .navbtn_after{
-    width:110%;  //選択時のボタン幅（通常時の90%）
+    width: 100%;//選択時のボタン幅（通常時の90%）
     background-color: rgb(255, 255, 255);
+    animation-name: slide-in;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
   }
 
 
@@ -52,8 +54,7 @@
     justify-content: center;
     font-weight: bold;
     background-color: #ffffff;
-    cursor: pointer;
-
+    cursor: pointer;//追加　ボタン上でのpointer出す用
 
     .titlesize{
     font-size: 35px;
@@ -64,7 +65,7 @@
     color: rgb(249, 249, 249);
     background-color: black;
     text-align: center;
-    font-size: 14px;
+    font-size: 14px;//メンバー募集が2行にならない用
     }   
   }
 
@@ -75,7 +76,7 @@
     justify-content: center;
     font-weight: bold;
     background-color: #00ffea;
-
+    
         .titlesize{
         font-size: 35px;
         color: #1b0d0d;
@@ -87,8 +88,6 @@
         text-align: center;
         }   
   }
-
-
  
   .navbtn:hover{
       margin-top: 1px;
@@ -103,4 +102,12 @@
       }
   }
 
-  
+  //ボタンを押したときに幅が広がるアニメーション
+  @keyframes slide-in{
+    from {
+      width:100%;
+    }
+    to{
+      width: 120%;
+    }
+  }
