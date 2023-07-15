@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBE6W2TXtedCPj5ZoKQu2WIyVEBOMD0BIg",
+  apiKey: "AIzaSyBE6W2TXtedCPj5ZoKQu2WIyVEBOMD0BIg",
   authDomain: "test-nextjs-d6670.firebaseapp.com",
   projectId: "test-nextjs-d6670",
   storageBucket: "test-nextjs-d6670.appspot.com",

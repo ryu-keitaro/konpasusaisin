@@ -27,13 +27,13 @@ interface FirestoreData {
 }
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAL2k3eiGWuVfvxZd2-1QrzPZzYUunPdSU",
-  authDomain: "conpas-93e54.firebaseapp.com",
-  projectId: "conpas-93e54",
-  storageBucket: "conpas-93e54.appspot.com",
-  messagingSenderId: "989467913511",
-  appId: "1:989467913511:web:30efac48507ccec4768d02",
-  measurementId: "G-5JSSYVBJR0"
+  apiKey: "AIzaSyBE6W2TXtedCPj5ZoKQu2WIyVEBOMD0BIg",
+  authDomain: "test-nextjs-d6670.firebaseapp.com",
+  projectId: "test-nextjs-d6670",
+  storageBucket: "test-nextjs-d6670.appspot.com",
+  messagingSenderId: "531537153080",
+  appId: "1:531537153080:web:5b1656e3c43845d1baeacd",
+  measurementId: "G-KYVPHJTMQX"
 };
 
 const getStrTime = (time: string | number | Date) => {
@@ -121,6 +121,7 @@ export default function DataDisplayPage() {
 
 
   const [page, setPage] = useState(0);
+  
 
 
   const PageChange = (count:any) => {
@@ -137,7 +138,7 @@ export default function DataDisplayPage() {
     });
   };
 
-
+ 
 
   //追加部分　scrolltotop関数を定義
   const scrollToTop=()=>{
@@ -160,16 +161,17 @@ export default function DataDisplayPage() {
     }
 
     // 選択されたタグに一致するデータのみ表示
-    return selectedTags.every((tag) => item.tag[tag]);
+    return selectedTags.every((tag) =>item.tag && item.tag[tag]);
   });
   
+  const maximumPage = Math.ceil(filteredData.length / 10);
 
   return (
 // ここからメンバー募集の画面
  <div>
-      <button className={styles.pagebtn} onClick={() => {PageChange(-1)}}>⇐　前の十件</button>
-      <button  className={styles.pagebtn} onClick={() => PageChange(1)}>次の十件　⇒</button>
-      <h4>ページ{page+1}</h4>
+      <button className={styles.pagebtn} onClick={() => {PageChange(-1)}}>⇐{page}の十件</button>
+      <button  className={styles.pagebtn} onClick={() => PageChange(1)}>{page+2}の十件　⇒</button>
+      <h4>ページ{page+1}/{maximumPage}　　　{filteredData.length}件表示</h4>
 
       <h4>タグ絞り込み</h4>
       
@@ -227,7 +229,7 @@ export default function DataDisplayPage() {
             </div>
             <div>
               タグ：
-              {Object.entries(item.tag)
+              {item.tag && Object.entries(item.tag)
                 .sort(customSort)
                 .map(([tagName, tagValue]) => {
                   if (tagValue) {
@@ -252,9 +254,9 @@ export default function DataDisplayPage() {
       <h4>ページ{page+1}</h4>
       <br/><br/><br/><br/><br/><br/><br/><br/>
       {/* ボタンでpagechange関数と一緒にscrolltotop関数も動く */}
-      <button className={styles.pagebtn} onClick={() => {PageChange(-1); scrollToTop()}}>⇐　前の十件</button>
+      <button className={styles.pagebtn} onClick={() => {PageChange(-1); scrollToTop()}}>⇐　{page}の十件</button>
       
-      <button  className={styles.pagebtn2} onClick={() =>{PageChange(1); scrollToTop()}}>次の十件　⇒</button>     
+      <button  className={styles.pagebtn} onClick={() =>{PageChange(1); scrollToTop()}}>{page+2}の十件　⇒</button>     
   </div>
 // ここまでメンバー募集の画面
 
