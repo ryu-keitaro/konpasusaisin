@@ -138,7 +138,9 @@ export default function DataDisplayPage() {
     });
   };
 
- 
+//  const PortalChange = (pageNumber:number) => {
+//   setPage(pageNumber);
+// };
 
   //追加部分　scrolltotop関数を定義
   const scrollToTop=()=>{
@@ -163,14 +165,16 @@ export default function DataDisplayPage() {
     // 選択されたタグに一致するデータのみ表示
     return selectedTags.every((tag) =>item.tag && item.tag[tag]);
   });
+
+
   
-  const maximumPage = Math.ceil(filteredData.length / 10);
+  const maximumPage = Math.floor(filteredData.length / 10)  +1  ;//最大ページ数。投稿34件なら4ページ
 
   return (
 // ここからメンバー募集の画面
  <div>
-      <button className={styles.pagebtn} onClick={() => {PageChange(-1)}}>⇐{page}の十件</button>
-      <button  className={styles.pagebtn} onClick={() => PageChange(1)}>{page+2}の十件　⇒</button>
+      <button className={styles.pagebtn} onClick={() => {PageChange(-1); scrollToTop()}}>{page === 0 ? '　．．．' : `⇐ 前の十件`}</button>     
+      {page !==maximumPage-1 && (<button  className={styles.pagebtn} onClick={() =>{PageChange(1); scrollToTop()}}>次の十件　⇒</button>)}
       <h4>ページ{page+1}/{maximumPage}　　　{filteredData.length}件表示</h4>
 
       <h4>タグ絞り込み</h4>
@@ -190,7 +194,10 @@ export default function DataDisplayPage() {
                       <input
                         type="checkbox"
                         checked={selectedTags.includes(tag)}
-                        onChange={() => handleTagSelect(tag)}
+                        onChange={() => {
+                          handleTagSelect(tag);
+                          setPage(0);//1ページ目以外でタグ選択した時、強制的に1ページ目に戻す
+                        }}
                         className={styles.checkbtn3}
                     />
                     <span className={styles.tagnamesize}>{tag}</span>
@@ -250,13 +257,15 @@ export default function DataDisplayPage() {
         // </ul>
       ))}
 
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-      <h4>ページ{page+1}</h4>
-      <br/><br/><br/><br/><br/><br/><br/><br/>
-      {/* ボタンでpagechange関数と一緒にscrolltotop関数も動く */}
-      <button className={styles.pagebtn} onClick={() => {PageChange(-1); scrollToTop()}}>⇐　{page}の十件</button>
       
-      <button  className={styles.pagebtn} onClick={() =>{PageChange(1); scrollToTop()}}>{page+2}の十件　⇒</button>     
+      <h4>ページ{page+1}/{maximumPage}</h4>
+      
+      {/* ボタンでpagechange関数と一緒にscrolltotop関数も動く */}
+      <button className={styles.pagebtn} onClick={() => {PageChange(-1); scrollToTop()}}>{page === 0 ? '　．．．' : `⇐ 前の十件`}</button>
+      {/* <button className={styles.portalbtn} onClick={()=> {PortalChange(page-1)}}>{page-1}</button>
+      <button className={styles.portalbtn} onClick={()=> {PortalChange(page)}}>{page}</button>
+      <button className={styles.portalbtn} onClick={()=> {PortalChange(page+1)}}>{page+1}</button> */}
+      {page !==maximumPage-1 && (<button  className={styles.pagebtn} onClick={() =>{PageChange(1); scrollToTop()}}>次の十件　⇒</button>)}     
   </div>
 // ここまでメンバー募集の画面
 

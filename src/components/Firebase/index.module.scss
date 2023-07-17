@@ -120,6 +120,19 @@
       box-shadow: 0 2px 0 #aaaaaa;
     }
 
+    .portalbtn{
+      position: relative;
+      bottom: 0px;
+      margin: 0 auto;
+      padding: 1em 0em;
+      width: 100px;
+      color: #333;
+      font-size: 9px;
+      font-weight: 900;
+      background-color: #f5eded;
+      box-shadow: 0 3px 0 #c9c7c7;
+      transition: 0.3s;
+    }
 
     
     
@@ -256,7 +269,8 @@
   
     //↓改行用
     .text{
-      white-space: pre-wrap;
+      white-space: pre-wrap;//改行を表示
+      word-break: break-all;//文字を折り返す
     }
     
 

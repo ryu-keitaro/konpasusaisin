@@ -22,6 +22,15 @@
   }
   }
 
+.container_close{
+  margin-top: 0x;/*文字の下s幅*/
+    width: 100%;
+    display: block;
+    animation-name: closeNav;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
 
   //ボタン外枠のデザイン
   .navbtn{
@@ -102,12 +111,44 @@
       }
   }
 
+  .nav_close{
+    width: 100%;
+    animation-name: closeNav;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+
+  .nav_open{
+    width: 100%;
+    animation-name: openNav;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+
   //ボタンを押したときに幅が広がるアニメーション
   @keyframes slide-in{
     from {
       width:100%;
     }
     to{
-      width: 120%;
+      width: 113%;
+    }
+  }
+
+  @keyframes closeNav{
+    from{
+      transform: translateX(0%);
+    }
+    to{
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes openNav{
+    from{
+      transform: translateX(-100%);
+    }
+    to{
+      transform: translateX(0%);
     }
   }

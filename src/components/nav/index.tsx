@@ -4,7 +4,7 @@
 import Link from "next/link";
 import styles from "./index.module.scss";
 import Image from "next/image";
-import React from "react";
+import React ,{useState}from "react";
 import { useRouter } from "next/router";//現在のpathを取得するためのやつ
 
 
@@ -43,25 +43,44 @@ const TOPICS = [
   },
 ];
 
+
 const Nav: React.FC = () => {
 
-  //追加　現在のページのpathを取得
+  //追加　
+  const [isNavClose, setIsNavClose] = useState(true);
+  const handleNavClose = () => {
+    setIsNavClose(!isNavClose);//
+  };
+
   const router = useRouter();
-  const currentPath = router.pathname;
+  const currentPath = router.pathname;//現在のパスを取得
   //ここまで
 
+
+
   return (
-    <section className={styles.container}>
-      <ul className={styles.contents}>
+    <>
+    {!isNavClose && (
+        <button  onClick={handleNavClose}>{'⋙'}</button>
+      )}
+      
+    {isNavClose && (
+      
+    <section className={styles.container} >
+      <ul className={styles.contents} >      
         {TOPICS.map((topic, index) => {
-          const isActive = currentPath === topic.path;
+
+          const isActive = currentPath === topic.path;//現在のパスとボタンのパスが同じときisActiveとする。
+          
           return (
             // ここからボタン一つ分のデザイン
             <li key={index} className={`${styles.navbtn} ${isActive ? styles.navbtn_after:""}`}>
-          
-               {/* Linkのほうがaよりデータ読み込み少なくていいかも */}
+               {/* ↑isActiveがtrueの時ボタンのスタイルをnavbtn_afterに変更 */}
+
               <Link legacyBehavior href={topic.path} > 
                 <div className={`${styles.button} ${isActive ? styles.button_after : ""}`}>
+                  {/* ↑isActiveがtrueの時ボタンのスタイルをbutton_afterに変更 */}
+
                   <Image
                       src={topic.icon}
                       alt=""
@@ -76,15 +95,17 @@ const Nav: React.FC = () => {
                   <p className={styles.namelogo}>{topic.name}</p>  
                 </div>
               </Link>
-              
-
-
+             
             </li>
-            // ここまでボタン一つ分のデザイン
-          );
+            // ここまでボタン一つ分のデザイン    
+          );  
         })}
-      </ul>
+     <button  onClick={handleNavClose}>{'⋘'}</button>
+      </ul>    
     </section>
+
+    )}
+    </>     
   );
 };
 

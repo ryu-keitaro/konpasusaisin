@@ -6,26 +6,27 @@
     display: flex;
     margin: 0 auto;
     background-color:  rgb(255, 255, 255);
+
 }
 
- .nav{
-  background-color: rgb(254, 254, 254);
-  position: fixed;
-  }
-
-//.main変更しました
+ .nav{ 
+  
+  position: relative;
+  
+  z-index:1;
+  
+  
+ }
+  
   .main {
-    width: 100%;
-    margin-left: 125px;
+    
+    flex-grow: 1;
+    
+    width: calc(100%);
+    margin-left: 15px;
     z-index: 0; //レイヤーの0層目に.mainを置く
    }
   
-  .blank {
-    flex: 2;
-   }
-
-
-
 
   .loading {
     position: fixed;
@@ -54,16 +55,11 @@
     animation: loading 700ms linear 0ms infinite normal both;
   }
 
-
-  // @media (max-width: 1000px) {
-  //   .nav{
-  //     background-color: rgb(254, 254, 254);
-  //     position: fixed;
-  //     }
-  // }
-
-
-  // @keyframes loading {
-  //   0% { transform: rotate( 0deg ); }
-  //   100% { transform: rotate( 360deg ); }
-  // }
+  // @keyframes nav-slide{
+  //   from{
+  //     transform: translateX(0%);
+  //   }
+  //   to{
+  //     transform: translateX(-100%);
+  //   }
+  //  }

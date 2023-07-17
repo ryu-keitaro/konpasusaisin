@@ -8,8 +8,6 @@ import AllPosts from '@/components/firedetabox/AllPost';
 
 
 
-
-
 export default function Home() {
  
   return (
@@ -20,26 +18,19 @@ export default function Home() {
 
        <div className={styles.contents}>
         <div className={styles.nav}>
-          <nav>
+          
             <Nav />
-          </nav>
+        
         </div>
-        <div className={styles.blank} />
+        {/* <div className={styles.blank} /> */}
       
         <div className={styles.main} >
 
+            <DataDisplayPage/>
 
-       
-        <DataDisplayPage/>
-
-        
         {/* <AllPosts/> */}
         {/* <AppData /> */}
-        
-        
         {/* <BBS /> */}
-   
-       
         </div>
       </div>
       
