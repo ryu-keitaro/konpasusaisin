@@ -1,8 +1,8 @@
 //src/components/nav/index.modules.scss
-//ナビゲーションバーのレイアウト調整
+//選択されているナビゲーションバーのボタンのデザインを変更
 
 .container {
-    margin-top: 0x;/*文字の下s幅*/
+    margin-top: 0x;
     width: 100%;
     display: block;
   }
@@ -13,7 +13,7 @@
    
     
     >li {
-      margin-bottom: 0dvh;/*文字の下s幅*/
+      margin-bottom: 0dvh;
       opacity: 0.7;
       color: rgb(173, 49, 49);
       border: double 5px #000;
@@ -22,37 +22,26 @@
   }
   }
 
-.container_close{
-  margin-top: 0x;/*文字の下s幅*/
-    width: 100%;
-    display: block;
-    animation-name: closeNav;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-}
 
 
-  //ボタン外枠のデザイン
+
+  //変更：ボタン外枠のデザイン
   .navbtn{
-    width: 95px; //ボタン外枠の幅
+    width: 95px; //変更：ボタン外枠の幅
     
     color: #fff;
     border-bottom: 2px solid #37332e;
     font-weight: bold;
     
-
-    // a{
-    //   text-decoration: none;
-    // }
   }
 
-  //選択時のボタン外枠のデザイン
+  //追加：選択時のボタン外枠のデザイン
   .navbtn_after{
-    width: 100%;//選択時のボタン幅（通常時の90%）
+    width: 100%;//選択時のボタン幅
     background-color: rgb(255, 255, 255);
-    animation-name: slide-in;
+    animation-name: slide-in;//アニメーション追加
     animation-duration: 0.5s;
-    animation-fill-mode: forwards;
+    animation-fill-mode: forwards;//アニメーション最後の状態を維持
   }
 
 
@@ -63,7 +52,7 @@
     justify-content: center;
     font-weight: bold;
     background-color: #ffffff;
-    cursor: pointer;//追加　ボタン上でのpointer出す用
+    cursor: pointer;//追加：ボタン上でのpointer出す用
 
     .titlesize{
     font-size: 35px;
@@ -78,7 +67,7 @@
     }   
   }
 
-  //選択時のボタン内枠のデザイン
+  //追加：選択時のボタン内枠のデザイン
   .button_after {
     width: 100%; //選択時のボタン内枠の幅
     color: rgb(15, 36, 36);
@@ -111,21 +100,9 @@
       }
   }
 
-  .nav_close{
-    width: 100%;
-    animation-name: closeNav;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-  }
+  
 
-  .nav_open{
-    width: 100%;
-    animation-name: openNav;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-  }
-
-  //ボタンを押したときに幅が広がるアニメーション
+  //追加：ボタンを押したときに幅が広がるアニメーション
   @keyframes slide-in{
     from {
       width:100%;
@@ -135,20 +112,4 @@
     }
   }
 
-  @keyframes closeNav{
-    from{
-      transform: translateX(0%);
-    }
-    to{
-      transform: translateX(-100%);
-    }
-  }
-
-  @keyframes openNav{
-    from{
-      transform: translateX(-100%);
-    }
-    to{
-      transform: translateX(0%);
-    }
-  }
+ 

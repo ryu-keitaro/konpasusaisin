@@ -1,7 +1,5 @@
 //src/components/Firebase/indexmodule.scss 
-//タグのレイアウト修正
-//一番下に改行用の.textを設定
-//入力でテキストボックスの大きさ変化
+//このプログラムの一番下にアルファベットの文字列の折り返されないバグの修正いれた
 
 .formlayout{
    
@@ -269,8 +267,8 @@
   
     //↓改行用
     .text{
-      white-space: pre-wrap;//改行を表示
-      word-break: break-all;//文字を折り返す
+      white-space: pre-wrap;
+      word-break: break-all;//追加：アルファベットの文字列を折り返して表示
     }
     
 

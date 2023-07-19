@@ -1,6 +1,6 @@
 //src/components/Firebase/DataDisplayPage.tsx
-//投稿一覧のページ移動時、上にスクロールを追加
-//225行目に改行のやつ追加
+//投稿一覧のページ遷移ボタンを状況に応じて変化させる。
+//タグ絞り込みボタン押したときに1ページ目に飛ぶように変更。
 
 import React, { useRef ,useEffect, useState } from 'react';
 import { initializeApp } from 'firebase/app';
@@ -9,7 +9,7 @@ import styles from './index.module.scss';
 import Description from '../detail/description';
 import firebase from "firebase/compat/app";
 
-// Firebaseの設定と型定義
+
 
 interface TagFields {
   [key: string]: boolean;
@@ -110,10 +110,10 @@ export default function DataDisplayPage() {
   const handleTagSelect = (tagName: string) => {
     setSelectedTags((prevSelectedTags) => {
       if (prevSelectedTags.includes(tagName)) {
-        // タグが既に選択されている場合は削除
+        
         return prevSelectedTags.filter((tag) => tag !== tagName);
       } else {
-        // タグが選択されていない場合は追加
+        
         return [...prevSelectedTags, tagName];
       }
     });
@@ -130,7 +130,7 @@ export default function DataDisplayPage() {
       const maxPage = Math.floor(filteredData.length / 10);
 
       if (newPage < 0 || newPage > maxPage) {
-        // ページ範囲外なら移動しません！
+        
         return prevPage;
       } else {
         return newPage;
@@ -138,55 +138,48 @@ export default function DataDisplayPage() {
     });
   };
 
-//  const PortalChange = (pageNumber:number) => {
-//   setPage(pageNumber);
-// };
 
-  //追加部分　scrolltotop関数を定義
+
+  
   const scrollToTop=()=>{
     window.scrollTo({
       top:0,
-      //behavior: 'auto', // 一瞬でスクロールする場合
-      behavior: 'smooth', // スムーズにスクロールする場合
+      
+      behavior: 'smooth', 
     });
   };
 
 
 
   const filteredData = data
-  .sort((a, b) =>(b.strT - a.strT)) // timeプロパティで降順ソート
+  .sort((a, b) =>(b.strT - a.strT)) 
   .filter((item) => {
     
     if (selectedTags.length === 0) {
-      // 選択されたタグがない場合はすべてのデータを表示
       return true;
     }
 
-    // 選択されたタグに一致するデータのみ表示
     return selectedTags.every((tag) =>item.tag && item.tag[tag]);
   });
 
 
   
-  const maximumPage = Math.floor(filteredData.length / 10)  +1  ;//最大ページ数。投稿34件なら4ページ
+  const maximumPage = Math.max(1, Math.ceil(filteredData.length / 10));//追加：最大ページ数。投稿34件なら4ページ
 
   return (
 // ここからメンバー募集の画面
- <div>
+ <div>      
+                                                                                        {/*ページ1のとき'　．．．'ボタンを表示、そうでなければ`⇐ 前の十件`ボタンを表示*/}
       <button className={styles.pagebtn} onClick={() => {PageChange(-1); scrollToTop()}}>{page === 0 ? '　．．．' : `⇐ 前の十件`}</button>     
+
+      {/* ページが最大のとき、"次の十件"ボタンを非表示にする */}
       {page !==maximumPage-1 && (<button  className={styles.pagebtn} onClick={() =>{PageChange(1); scrollToTop()}}>次の十件　⇒</button>)}
+
+      {/* 現在のページ/最大ページを表示。　　　投稿件数の総数を表示。 */}
       <h4>ページ{page+1}/{maximumPage}　　　{filteredData.length}件表示</h4>
 
       <h4>タグ絞り込み</h4>
-      
 
-      {/* <div className='Tagsellect'>
-        タグ絞り込み: {selectedTags.join(', ')}
-      </div> */}
-
-
-
-      {/* この変いじる */}
       <div className={styles.tagGrid2}>
               {tagList.map((tag) => (
                 <div key={tag} >
@@ -196,7 +189,7 @@ export default function DataDisplayPage() {
                         checked={selectedTags.includes(tag)}
                         onChange={() => {
                           handleTagSelect(tag);
-                          setPage(0);//1ページ目以外でタグ選択した時、強制的に1ページ目に戻す
+                          setPage(0);//追加：タグ選択するたびに1ページ目に戻す
                         }}
                         className={styles.checkbtn3}
                     />
@@ -206,31 +199,16 @@ export default function DataDisplayPage() {
               ))}
       </div>
 
-      {/* <div>
-        {tagList.map((tag) => (
-          <button key={tag} onClick={() => handleTagSelect(tag)}  className='Tagsellect'>
-            Toggle {tag}
-          </button>
-        ))}
-      </div> */}
-
-      
-
-    
-
       {filteredData.slice(page * 10, (page + 1) * 10).map((item) => (
-        // <ul className="itemflex" >
           <article className={styles.bbs__main} key={item.id}>
             <div className={styles.titlebox} key={item.id}>
               <h3 key={item.id}>
-                 {item.title} {/*タイトル*/}
+                 {item.title} 
               </h3>
             </div>
             <div>
               <h5>Guildname: {item.name}</h5>
               <br></br>
-
-              {/* classnameに.text指定で改行できる */}
               <p key={item.id} className={styles.text}>{item.detail}</p>
               <br></br>
             </div>
@@ -252,19 +230,15 @@ export default function DataDisplayPage() {
   
             
           </article>
-        
-        
-        // </ul>
       ))}
 
       
       <h4>ページ{page+1}/{maximumPage}</h4>
       
-      {/* ボタンでpagechange関数と一緒にscrolltotop関数も動く */}
+                                                                                        {/*ページ1のとき'　．．．'ボタンを表示、そうでなければ`⇐ 前の十件`ボタンを表示*/}
       <button className={styles.pagebtn} onClick={() => {PageChange(-1); scrollToTop()}}>{page === 0 ? '　．．．' : `⇐ 前の十件`}</button>
-      {/* <button className={styles.portalbtn} onClick={()=> {PortalChange(page-1)}}>{page-1}</button>
-      <button className={styles.portalbtn} onClick={()=> {PortalChange(page)}}>{page}</button>
-      <button className={styles.portalbtn} onClick={()=> {PortalChange(page+1)}}>{page+1}</button> */}
+
+      {/* ページが最大のとき、"次の十件"ボタンを非表示にする */}
       {page !==maximumPage-1 && (<button  className={styles.pagebtn} onClick={() =>{PageChange(1); scrollToTop()}}>次の十件　⇒</button>)}     
   </div>
 // ここまでメンバー募集の画面

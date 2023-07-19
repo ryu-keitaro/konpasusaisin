@@ -10,16 +10,13 @@
 }
 
  .nav{ 
-  
-  position: relative;
+  position: fixed;
+  z-index: 1;
  }
   
   .main {
-    
-    flex-grow: 1;
-    
-    width: calc(100%);
-    margin-left: 15px;
+    width: 100%;
+    margin-left: 120px;
     z-index: 0; //レイヤーの0層目に.mainを置く
    }
   
