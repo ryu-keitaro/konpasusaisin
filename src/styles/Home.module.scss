@@ -1,7 +1,7 @@
 //src/styles/home.module.scss
-//登校一覧とナビゲーションバーが被るのを修正
+//.navの幅にmainの幅が合うように
 
-//.contents変更しました
+
 .contents {
     display: flex;
     margin: 0 auto;
@@ -9,16 +9,22 @@
 
 }
 
+//変更：
  .nav{ 
-  position: fixed;
-  z-index: 1;
+  background-color: #ffcccc;
+  position: sticky;
+  top: 60px;
+  height: 450px;
  }
   
+//変更
   .main {
     width: 100%;
-    margin-left: 120px;
-    z-index: 0; //レイヤーの0層目に.mainを置く
+    margin-left: 5px; 
+    z-index: 0; 
    }
+
+  
   
 
   .loading {
@@ -48,11 +54,4 @@
     animation: loading 700ms linear 0ms infinite normal both;
   }
 
-  // @keyframes nav-slide{
-  //   from{
-  //     transform: translateX(0%);
-  //   }
-  //   to{
-  //     transform: translateX(-100%);
-  //   }
-  //  }
+  

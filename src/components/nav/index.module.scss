@@ -5,34 +5,26 @@
     margin-top: 0x;
     width: 100%;
     display: block;
-  }
+}
 
   .contents {
     list-style-type: none;
     height: auto;
    
-    
     >li {
       margin-bottom: 0dvh;
       opacity: 0.7;
       color: rgb(173, 49, 49);
-      border: double 5px #000;
-      
-      
+      border: double 5px #000;   
+    }
   }
-  }
-
-
-
 
   //変更：ボタン外枠のデザイン
   .navbtn{
     width: 95px; //変更：ボタン外枠の幅
-    
     color: #fff;
     border-bottom: 2px solid #37332e;
     font-weight: bold;
-    
   }
 
   //追加：選択時のボタン外枠のデザイン
@@ -100,16 +92,57 @@
       }
   }
 
+  .openbtn{
+    background-color: #00ffea;
+    width: 30px;
+    height: 30px;
+    margin-top:420px;
+    
+    
+  }
+
+  .closebtn{
+    background-color: #00ffea;
+    width: 95px;
+    height: 30px;
+  }
+
   
 
   //追加：ボタンを押したときに幅が広がるアニメーション
   @keyframes slide-in{
     from {
-      width:100%;
+      width:110px;
     }
     to{
-      width: 113%;
+      width: 110px;
     }
   }
 
- 
+
+  .nav_open {
+    animation: slideIn 1s ease-in-out forwards;
+  }
+  
+  .nav_closed {
+    animation: slideOut 1s ease-in-out  forwards;
+  }
+
+  //ナビゲーションバー全体のアニメーション
+  @keyframes slideIn {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes slideOut {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
