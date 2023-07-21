@@ -1,6 +1,5 @@
 //src/components/nav/index.tsx
-//選択されているナビゲーションバーのボタンのデザインを変更
-//ページ遷移をaタグからLinkタグに変更
+//ナビゲーションバーの非表示、追加（４９～５２行目）（６６～７３行目）（１１８～１２２行目）
 
 import Link from "next/link";
 import styles from "./index.module.scss";
@@ -46,29 +45,33 @@ const TOPICS = [
 
 const Nav: React.FC = () => {
 
-  //ナビゲーションバーの非表示　
+  //追加：ナビゲーションバーの非表示　
   const [isNavClose, setIsNavClose] = useState(true);
   const handleNavClose = () => {
     setIsNavClose(!isNavClose);//
   };
+  //追加：ここまで
 
 
-  //追加：現在のページのパスを取得
+  
   const router = useRouter();
   const currentPath = router.pathname;
-  //
+  
 
 
 
   return (
-
-    // ナビゲーションバーの非表示
+  
+    // 追加：ここから
     <>
+    {/* ナビゲーションバーの表示 */}
     {!isNavClose && (
         <button className={styles.openbtn} onClick={handleNavClose}>{'▶'}</button>
       )}  
+    
+    {/* ナビゲーションバーの非表示 */}
     {isNavClose && (
-      
+    //追加：ここまで
 
     
 
@@ -110,16 +113,15 @@ const Nav: React.FC = () => {
           );  
         })}
 
-      {/* ナビゲーションバーの非表示ボタン */}
+
+      {/* 追加：ここから */}
      <button className={styles.closebtn} onClick={handleNavClose}>◀CLOSE</button>
       </ul>    
     </section>
-
-
     )}
-
-{/* //ナビゲーションバーの非表示 */}
-     </>     
+     </>   
+    //  追加：ここまで 
+     
   );
 };
 
