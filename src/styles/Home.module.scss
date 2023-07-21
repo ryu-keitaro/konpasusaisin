@@ -1,5 +1,5 @@
 //src/styles/home.module.scss
-//.navの幅にmainの幅が合うように
+//.navと.mainの変更
 
 
 .contents {
@@ -9,23 +9,26 @@
 
 }
 
-//変更：
+
+//変更
  .nav{ 
-  background-color: #ffcccc;
   position: sticky;
   top: 60px;
-  height: 450px;
+  height: 100%;
  }
   
 //変更
   .main {
     width: 100%;
-    margin-left: 5px; 
+    margin-left: 20px; 
     z-index: 0; 
    }
 
   
-  
+
+   
+
+
 
   .loading {
     position: fixed;

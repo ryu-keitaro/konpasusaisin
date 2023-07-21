@@ -73,7 +73,7 @@ const Nav: React.FC = () => {
     
 
 
-    <section className={styles.container} >
+    <section className={styles.container}  >
       <ul className={styles.contents} >      
         {TOPICS.map((topic, index) => {
 

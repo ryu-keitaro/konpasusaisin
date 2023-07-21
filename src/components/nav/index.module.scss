@@ -25,15 +25,16 @@
     color: #fff;
     border-bottom: 2px solid #37332e;
     font-weight: bold;
+    cursor: pointer;
   }
 
   //追加：選択時のボタン外枠のデザイン
   .navbtn_after{
     width: 100%;//選択時のボタン幅
     background-color: rgb(255, 255, 255);
-    animation-name: slide-in;//アニメーション追加
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;//アニメーション最後の状態を維持
+    animation-name: slide-in;
+    animation-duration:  0.5s ;
+    animation-fill-mode: forwards;
   }
 
 
@@ -92,19 +93,23 @@
       }
   }
 
+
+
   .openbtn{
-    background-color: #00ffea;
-    width: 30px;
-    height: 30px;
-    margin-top:420px;
+    background-color: #bebab5;
+    width: 20px;
+    height: 90px;
+    margin-top:390px;
+    cursor: pointer;
     
     
   }
 
   .closebtn{
-    background-color: #00ffea;
+    background-color: #bebab5;
     width: 95px;
     height: 30px;
+    cursor: pointer;
   }
 
   
@@ -112,7 +117,7 @@
   //追加：ボタンを押したときに幅が広がるアニメーション
   @keyframes slide-in{
     from {
-      width:110px;
+      width:95px;
     }
     to{
       width: 110px;
@@ -120,29 +125,8 @@
   }
 
 
-  .nav_open {
-    animation: slideIn 1s ease-in-out forwards;
-  }
-  
-  .nav_closed {
-    animation: slideOut 1s ease-in-out  forwards;
-  }
 
-  //ナビゲーションバー全体のアニメーション
-  @keyframes slideIn {
-    from {
-      transform: translateX(0%);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
+
+
   
-  @keyframes slideOut {
-    from {
-      transform: translateX(-100%);
-    }
-    to {
-      transform: translateX(0%);
-    }
-  }
+  
